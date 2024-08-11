@@ -96,10 +96,12 @@ consume the proof created by the program above and thus 'put' the proof on chain
 */
 //export class ProofOfCompanyRegistration extends ZkProgram.Proof(proofOfCompliance) {}
 
-const ProofOfComplianceEXIM_ = ZkProgram.Proof(proofOfComplianceEXIM );
+export const ProofOfComplianceEXIM_ = ZkProgram.Proof(proofOfComplianceEXIM );
 class ProofOfComplianceEXIM extends ProofOfComplianceEXIM_ {}
 
-export class ProofOfCompanyRegistration extends SmartContract {
+export class ProofOfInternationalTradeComplianceProof extends ZkProgram.Proof(proofOfComplianceEXIM) {}
+
+export class ProofOfInternationalTradeCompliance extends SmartContract {
   events = {
     'provided-valid-proof': PublicOutput,
   };

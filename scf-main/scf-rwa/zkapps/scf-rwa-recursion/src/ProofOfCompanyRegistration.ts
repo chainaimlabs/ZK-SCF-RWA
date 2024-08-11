@@ -11,7 +11,7 @@ import {
 
 import { CorporateRegistrationData, evalCorporateCompliance } from './ProofOfCompanyRegistration.utils.js';
 
-class PublicOutput extends Struct({
+export class PublicOutput extends Struct({
    corporateComplianceToProve: Field,
    currCompanyComplianceStatusCode: Field,
    creatorPublicKey: PublicKey,
@@ -96,10 +96,8 @@ consume the proof created by the program above and thus 'put' the proof on chain
 */
 //export class ProofOfCompanyRegistration extends ZkProgram.Proof(proofOfCompliance) {}
 
-const ProofOfCompliance_ = ZkProgram.Proof(proofOfCompliance );
-class ProofOfCompliance extends ProofOfCompliance_ {}
-
-//export class ProofOfAgeProof extends ZkProgram.Proof(proofOfAge) {}
+export const ProofOfCompliance_ = ZkProgram.Proof(proofOfCompliance );
+export class ProofOfCompliance extends ProofOfCompliance_ {}
 
 export class ProofOfCompanyRegistrationProof extends ZkProgram.Proof(proofOfCompliance) {}
 
@@ -133,10 +131,10 @@ const main = async () => {
 
   console.log('compiling...');
 
-  //const proof0 = await ProofOfCompliance.compile();
+  const proof0 = await proofOfCompliance.compile();
   const proof1 = await ProofOfCompanyRegistration.compile();
 
-  console.log(' proof 1 public input...', proof1.verify);
+  //console.log(' proof 1 public input...', proof1.verify);
 
 }
 

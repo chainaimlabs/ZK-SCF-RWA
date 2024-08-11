@@ -69,7 +69,7 @@ const evalCorporateCompliance = (currCompanyComplianceStatusCode: Field): Field 
 
   console.log( ' in val  ',  currCompanyComplianceStatusCode )
   const corpCompliance = currCompanyComplianceStatusCode
-  .mul(Field(100))
+  .mul(Field(1))
   return corpCompliance;
   
   };
@@ -82,7 +82,7 @@ const main = async () => {
   
   //const ret = evalCorporateCompliance(Field(0));
 
-  const ret = evalCorporateCompliance(Field(0));
+  const ret = evalCorporateCompliance(Field(1));
 
   console.log('ret ...' , ret);
 
